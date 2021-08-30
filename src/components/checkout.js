@@ -3,54 +3,33 @@ import TitleBanner from "./title";
 import ProductCatalog from "./products/productCatalog";
 import Cart from "./cart/cart";
 import Products from "./products/products";
-import calculateTotal from "./totalCalculator";
+import CartTotal from "./totalCalculator";
 
 
-let allProducts = {};
-
-// set the products from the catalog
-ProductCatalog.forEach(({ item }) => {
-  allProducts[item] = 0;
-});
 
 
 
 const Checkout = () => {
-  const [cartQuantities, setCartQuantities] = useState(allProducts);
+
+  let products = {};
+
+ProductCatalog.forEach(({ item }) => {
+  products[item] = 0;
+});
+
+  const [cartQuantities, setCartQuantities] = useState(products);
   const [total, updateTotal] = useState(0);
 
   const setNewProductQuantities = (item, quantity) => {
     let newCartQuantities = { ...cartQuantities };
     newCartQuantities[item] += quantity;
-    updateTotal(calculateTotal(ProductCatalog, newCartQuantities));
+    updateTotal(CartTotal(ProductCatalog, newCartQuantities));
     setCartQuantities(newCartQuantities);
   };
 
-  /*const calculateTotal = (productList, quantities) => {
-    let total = 0;
-
-    productList.forEach(({ item, unitPrice, offer }) => {
-      if (quantities[item] === 0) return; // If the current product quantity is zero, move onto the next product
-      if (offer) {
-        // If the current product has a truthy property of specialOffer, calculate the necessary discount as well as any full priced remaining product quantity
-        const { quantity, specialPrice } = offer;
-
-        let deal = quantities[item] / quantity;
-        let remainder = quantities[item] % quantity;
-
-        total += Math.floor(deal) * specialPrice + remainder * unitPrice;
-        return;
-      }
-      // If the quantity is above zero but it doesn't have any specialOffers, simply calculate the price
-      total += quantities[item] * unitPrice;
-    });
-
-    return total;
-  };*/
-
   const clearCart = () => {
     // Set the quantities back to the original empty product list, and total back to zero.
-    setCartQuantities(allProducts);
+    setCartQuantities(products);
     updateTotal(0);
   };
 
