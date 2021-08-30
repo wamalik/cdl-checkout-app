@@ -1,12 +1,9 @@
 import React, { useState } from "react";
-import TitleBanner from "./title";
-import ProductCatalog from "./products/productCatalog";
-import Cart from "./cart/cart";
-import Products from "./products/products";
+import TitleBanner from "../components/products/title";
+import ProductCatalog from "../components/products/productCatalog";
+import Cart from "../components/cart/cart";
+import Products from "../components/products/products";
 import CartTotal from "./totalCalculator";
-
-
-
 
 
 const Checkout = () => {
@@ -16,18 +13,19 @@ const Checkout = () => {
     products[item] = 0;
   });
 
-  const [cartQuantities, setCartQuantities] = useState(products);
+  const [initialCartItemCount, modifiedCartItemCount] = useState(products);
+  
   const [total, updateTotal] = useState(0);
 
-  const setNewProductQuantities = (item, quantity) => {
-    let newCartQuantities = { ...cartQuantities };
+  const updateProductItemCount = (item, quantity) => {
+    let newCartQuantities = { ...initialCartItemCount };
     newCartQuantities[item] += quantity;
     updateTotal(CartTotal(ProductCatalog, newCartQuantities));
-    setCartQuantities(newCartQuantities);
+    modifiedCartItemCount(newCartQuantities);
   };
 
   const clearCart = () => {
-    setCartQuantities(products);
+    modifiedCartItemCount(products);
     updateTotal(0);
   };
 
@@ -36,10 +34,10 @@ const Checkout = () => {
       <TitleBanner />
       <Products
         productList={ProductCatalog}
-        setQuantity={setNewProductQuantities}
+        quantity={updateProductItemCount}
       />
       <Cart
-        quantities={cartQuantities}
+        quantities={initialCartItemCount}
         total={total}
         clearCart={clearCart}
       />

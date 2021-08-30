@@ -2,8 +2,7 @@ import React from "react";
 import LineItem from "./lineItems";
 
 
-
-const Products = ({ productList, setQuantity }) => {
+const Products = ({ productList, quantity }) => {
   return (
     <div style={{ "width": "80%", "display": "flex" }}>
       <div style={{ "width": "20%", "display": "flex" }}></div>
@@ -14,7 +13,7 @@ const Products = ({ productList, setQuantity }) => {
           <LineItem
             product={product}
             key={product.item}
-            setQuantity={setQuantity}
+            quantity={quantity}
           />
         ))}
       </div>

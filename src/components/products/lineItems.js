@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
-
-const LineItem = ({ product, setQuantity }) => {
+const LineItem = ({ product, quantity }) => {
   
   const { item, unitPrice, offer } = product;
 
@@ -22,7 +21,7 @@ const LineItem = ({ product, setQuantity }) => {
 
 
         <div style={{ "display": "flex" }}>
-          <button className="btn btn-outline-primary" onClick={() => setQuantity(item, productQuantity)}>
+          <button className="btn btn-outline-primary" onClick={() => quantity(item, productQuantity)}>
             Add to Cart
           </button>
         </div>
@@ -31,5 +30,4 @@ const LineItem = ({ product, setQuantity }) => {
     </div>
   );
 };
-
 export default LineItem;
