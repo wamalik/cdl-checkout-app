@@ -1,11 +1,6 @@
 import React, { useState } from "react";
-//import ProductList from "../assets/ProductList";
-//import toMoney from "../assets/toMoney";
-//import Products from "../components/Products";
-//import Basket from "../components/Basket";
 import TitleBanner from "./title";
 import ProductCatalog from "./products/productCatalog";
-import LineItem from "./products/lineItems";
 import Cart from "./cart/cart";
 import Products from "./products/products"
 

@@ -6,32 +6,32 @@ const LineItem = ({ product, setQuantity }) => {
     const [productQuantity, updateProductQuantity] = useState(0);
   
     return (
-        <div className="row form-group">
-        <h3>{item}</h3>
+        <div style={{"display": "flex", "justify-content": "space-between","flex-direction": "column", "width": "200px"}}>
+        <h2>{item}</h2> 
         <p>Price: {unitPrice}</p>
-        <div  style ={{"color": "red", "font-weight": "bold"}}>
+        
+        <div  style ={{"display": "block", "align-items": "center", "color": "red", "font-weight": "bold", "width": "200px"}}>
           {offer
             ? `Offer:  ${offer.quantity} for ${
                 offer.specialPrice
               }`
             : ""}
-        </div>
-        <div style={{"display": "flex", "align-items": "center", "justify-content": "space-between", "flex-direction": "column", "width": "50%"}}>
-          <input
-            type="number"
-            min="0"
+          
+           <input
+            type="text"
+            min="0" 
             placeholder={productQuantity}
             onChange={(e) =>
               updateProductQuantity(
                 e.target.value > 0 ? Number(e.target.value) : 0
               )
             }
-          />
+                     />
         
 
-           <div>
+           <div style={{"display": "flex"}}>
           <button className="btn btn-outline-primary" onClick={() => setQuantity(item, productQuantity)}>
-              show info
+              Add to Cart
             </button>
             </div>
 
