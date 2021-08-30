@@ -12,10 +12,9 @@ import CartTotal from "./totalCalculator";
 const Checkout = () => {
 
   let products = {};
-
-ProductCatalog.forEach(({ item }) => {
-  products[item] = 0;
-});
+  ProductCatalog.forEach(({ item }) => {
+    products[item] = 0;
+  });
 
   const [cartQuantities, setCartQuantities] = useState(products);
   const [total, updateTotal] = useState(0);
@@ -28,7 +27,6 @@ ProductCatalog.forEach(({ item }) => {
   };
 
   const clearCart = () => {
-    // Set the quantities back to the original empty product list, and total back to zero.
     setCartQuantities(products);
     updateTotal(0);
   };

@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 
+
 const LineItem = ({ product, setQuantity }) => {
+  
   const { item, unitPrice, offer } = product;
 
   const [productQuantity, updateProductQuantity] = useState(0);
