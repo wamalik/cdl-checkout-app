@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import TitleBanner from "../components/products/title";
 import ProductCatalog from "../components/products/productCatalog";
 import Cart from "../components/cart/cart";
 import Products from "../components/products/products";
@@ -14,7 +13,7 @@ const Checkout = () => {
   });
 
   const [initialCartItemCount, modifiedCartItemCount] = useState(products);
-  
+
   const [total, updateTotal] = useState(0);
 
   const updateProductItemCount = (item, quantity) => {
@@ -31,7 +30,7 @@ const Checkout = () => {
 
   return (
     <div>
-      <TitleBanner />
+      <h1 align="center">CDL Checkout Application</h1>
       <Products
         productList={ProductCatalog}
         quantity={updateProductItemCount}

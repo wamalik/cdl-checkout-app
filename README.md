@@ -14,10 +14,11 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ## Design Decission/Improvements
 
-- This app is built using SOLID principles and main foucs is on 'S' Separation of conerns
-- Each component such as cart, product, item are built separetly
-- Heavy business logic processes such checkout and total calculation are developed independently under processes
-- To demo the flow, static product catalog is created 
-- Move time and focus is done on logic and as improvement multiple styling and UI/UX changes would be required 
--
+- This app is built using SOLID principles and main foucs is Separation of conerns
+- Application is developed using multiple components such as cart, product, item keeping SRP and DRY priniciples in mind
+- Heavy business logic processes such checkout and total calculation are built independently under processes
+- To demo the flow, product catalog is built using static array of products
+- To enhance, application can be integrated with backend microservice to fetch the actual product catalog from data store 
+- As further improvements, multiple styling and UI/UX changes would be required 
+
 
