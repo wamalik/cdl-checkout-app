@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import TitleBanner from "./title";
 import ProductCatalog from "./products/productCatalog";
 import Cart from "./cart/cart";
-import Products from "./products/products"
+import Products from "./products/products";
+import calculateTotal from "./totalCalculator";
 
 
 let allProducts = {};
@@ -25,7 +26,7 @@ const Checkout = () => {
     setCartQuantities(newCartQuantities);
   };
 
-  const calculateTotal = (productList, quantities) => {
+  /*const calculateTotal = (productList, quantities) => {
     let total = 0;
 
     productList.forEach(({ item, unitPrice, offer }) => {
@@ -45,7 +46,7 @@ const Checkout = () => {
     });
 
     return total;
-  };
+  };*/
 
   const clearCart = () => {
     // Set the quantities back to the original empty product list, and total back to zero.

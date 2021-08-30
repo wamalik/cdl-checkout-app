@@ -13,6 +13,11 @@ const ProductCatalog = [
       item: "C",
       unitPrice: 0.2,
       offer: null,
+    },
+    {
+      item: "D",
+      unitPrice: 0.15,
+      offer: null,
     }
   ];
   
